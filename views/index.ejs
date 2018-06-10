@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,intial-scale=1.0">
+    <style media="screen">
+
+    .search-container {
+      float: right;
+    }
+    .searchh{
+      border: 2px solid white;
+      background-color: yellow;
+    }
+     input[type=text] {
+      padding: 6px;
+      font-size: 17px;
+      margin: 20px 0px 20px 0px;
+
+    }
+
+    button {
+      margin-top:20px;
+      padding:6px;
+      background: #ddd;
+      font-size: 17px;
+      cursor: pointer;
+    }
+
+     button:hover {
+      background: #ccc;
+    }
+  </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>How's the weather?</title>
+  </head>
+  <body>
+     <div class="Page">
+       <div class="jumbotron " style="background-color:grey;color:white;font-family: Georgia;">
+          <h1>How's the weather at your place?</h1>
+       </div>
+       <form class="form-group container searchh"  method="post">
+
+         <i class="fa fa-search "></i>
+         <input type="text" name="searchCity" placeholder="Enter your City.."></input>
+         <button type="submit">Add City</button>
+
+       </form>
+
+          <div class="card-columns" >
+          <% for(weather of weather_data){ %>
+              <div class="card bg-info">
+               <h2 ><%=weather.city%></h2>
+
+                 <div class="card-body">
+                  <img style="float:left;display:inline,align:right" src="http://openweathermap.org/img/w/<%=weather.icon%>.png" alt="image">
+                    <div >
+                    <span><%=weather.description%></span><br>
+                    <span><%=weather.tempreture%>&#x2109;</span>
+                    </div>
+                </div>
+            </div>
+
+            <% } %>
+        </div>
+
+        </div>
+      <footer class="page-footer" style="height:80px;background-color:grey;position:sticky;margin-bottom:0px">
+      </footer>
+  </body>
+</html>
